@@ -10,6 +10,7 @@ import LinearScale from './subForms/LinearScale'
 import MultiChoice from './subForms/MultiChoice'
 import TickBox from './subForms/TickBox'
 import classes from "./subForms/subforms.module.scss"
+import Footer from './subForms/Footer'
 
 function Form() {
   return (<div className={classes.mainForm}>
@@ -23,6 +24,8 @@ function Form() {
     <LinearScale></LinearScale>
     <MultiChoice></MultiChoice>
     <TickBox></TickBox>
+    <Footer></Footer>
+    
   </div>
 
       )
