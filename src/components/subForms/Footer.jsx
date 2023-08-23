@@ -3,16 +3,24 @@ import classes from "./subforms.module.scss";
 import { Button, LinearProgress } from '@mui/material';
 
 function Footer() {
+
+const refresh = () => window.location.reload();
   return (
     <div className={classes.mainFooterContainer}>
         <div className={classes.mainFooterHeading}>
-            <Button variant="contained" className={classes.submitButton}>Submit
+            <Button variant="contained" className={classes.submitButton}
+            onClick={()=>{
+                alert("You have submitted the form. It will refresh the page")
+                refresh()}}
+            >Submit
             </Button>
                 <div className={classes.pageNoIndicator}>
                 <div  className={classes.pageNoProgress} ></div>
                 <p> Page 1 of 1</p>
                 </div>
-            <Button variant= "text" className={classes.clearFormButton}>Clear Form</Button>
+            <Button variant= "text" className={classes.clearFormButton}
+            onClick={refresh}
+            >Clear Form</Button>
         </div>
         <div className={classes.mainFooterBody}>
         <div className={classes.neverSubmitPassword}>
