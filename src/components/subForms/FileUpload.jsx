@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import classes from "./subforms.module.scss";
-import { Button, Typography } from '@mui/material';
+import classes from './subforms.module.scss';
+import { Button } from '@mui/material';
 import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 
 function FileUpload() {
@@ -9,28 +9,31 @@ function FileUpload() {
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     setSelectedFile(file);
+    console.log('Selected file:', file);
   };
+
   return (
     <div className={classes.questionContainer}>
-         <div className={classes.questionHeading}>
-         File Upload <span>*</span>
-         </div>
-         <div>
-      <input
-        style={{ display: 'none' }} // Hide the input element
-        id="file-upload"
-        type="file"
-        onChange={handleFileChange}
-      />
-      <label htmlFor="file-upload">
-        <Button variant="outlined"  className={classes.fileUploadButton}>
-        <FileUploadOutlinedIcon className={classes.fileUploadIcon}/>
-          Add File
-        </Button>
-      </label>
+      <div className={classes.questionHeading}>
+        File Upload <span>*</span>
+      </div>
+      <div>
+        <input
+          style={{ display: 'none' }}
+          id="file-upload"
+          type="file"
+          accept=".pdf,.docx" // Specify allowed file types
+          onChange={handleFileChange}
+        />
+        <label htmlFor="file-upload">
+          <Button variant="outlined" component="span" className={classes.fileUploadButton}>
+            <FileUploadOutlinedIcon className={classes.fileUploadIcon} />
+            Add File
+          </Button>
+        </label>
+      </div>
     </div>
-        </div>
-  )
+  );
 }
 
-export default FileUpload
+export default FileUpload;
